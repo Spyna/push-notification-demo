@@ -3,6 +3,7 @@ const Webpack = require('webpack');
 const merge = require('webpack-merge');
 const common = require('./webpack.common.js');
 
+
 module.exports = merge(common, {
   mode: 'development',
   devtool: 'cheap-eval-source-map',
@@ -15,7 +16,8 @@ module.exports = merge(common, {
   },
   plugins: [
     new Webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify('development')
+      'process.env.NODE_ENV': JSON.stringify('development'),
+      'process.env.PUSH_SERVER_URL': JSON.stringify('http://localhost:8080'),
     })
   ],
   module: {

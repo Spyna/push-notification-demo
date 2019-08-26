@@ -1,4 +1,4 @@
-const host = "https://push-notification-demo-server.herokuapp.com";
+const host = process.env.PUSH_SERVER_URL;
 
 function post(path, body) {
   return fetch(`${host}${path}`, {
