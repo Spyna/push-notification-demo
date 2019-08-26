@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "node ./back-end/src/server",
+    "start": "cd ./back-end && npm install && node ./src/server",
     "deploy:front-end": "cd front-end && npm install && npm run build"
   }
 }
