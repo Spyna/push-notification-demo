@@ -5,7 +5,7 @@ import {
   initializePushNotifications,
   registerServiceWorker,
   getUserSubscription,
-  subscribeUserToPushNotification
+  createNotificationSubscription
 } from "./push-notifications.js";
 
 /**
@@ -41,7 +41,7 @@ function askUserPermission() {
  * creates a push notification subscription, that has to be sent to the push server
  */
 function susbribeToPushNotification() {
-  subscribeUserToPushNotification().then(function(subscrition) {
+  createNotificationSubscription().then(function(subscrition) {
     showUserSubscription(subscrition);
   });
 }
@@ -77,7 +77,7 @@ const pushNotificationConsentSpan = document.getElementById("push-notification-c
 const sendPushNotificationButton = document.getElementById("send-push-notification-button");
 sendPushNotificationButton.addEventListener("click", sendNotification);
 
-const susbribeToPushNotificationButton = document.getElementById("subscribe-to-push-notification-button");
+const susbribeToPushNotificationButton = document.getElementById("create-notification-subscription-button");
 susbribeToPushNotificationButton.addEventListener("click", susbribeToPushNotification);
 
 const sendSubscriptionButton = document.getElementById("send-subscription-button");

@@ -15,6 +15,7 @@ function post(path, body) {
       return data;
     });
 }
+
 function get(path) {
   return fetch(`${host}${path}`, {
     credentials: "omit",
