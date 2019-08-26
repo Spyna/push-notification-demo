@@ -1,4 +1,4 @@
-const host = "http://localhost:8080";
+const host = "https://push-notification-demo-server.herokuapp.com";
 
 function post(path, body) {
   return fetch(`${host}${path}`, {
