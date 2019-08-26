@@ -1,0 +1,45 @@
+body {
+  width: 360px;
+  max-width: 100%;
+  margin: auto;
+}
+
+button {
+  background-color: #4caf50; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+  border: 1px solid #4caf50;
+}
+
+button:hover,
+button:active {
+  border: 1px solid #ccc;
+}
+
+button:disabled {
+  background-color: #ddd;
+  border: 1px solid #ccc;
+  cursor: not-allowed;
+}
+
+pre,
+code {
+  border: 1px solid #ccc;
+  padding: 5px;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word;
+  max-width: 100%;
+  word-wrap: break-word;
+}

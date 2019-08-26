@@ -1,0 +1,9 @@
+{
+  "name": "push-notification-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+      "deploy:front-end" : "cd front-end && npm install && npm run build"
+  }
+}

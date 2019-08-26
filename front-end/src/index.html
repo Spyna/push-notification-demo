@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Push notification demo</title>
+  </head>
+  <body>
+    <h1>Push notification demo</h1>
+    <h2>Push notification are supported by this browser: <span id="push-notification-supported"></span></h2>
+    <h2>User consent to push notification: <span id="push-notification-consent"></span></h2>
+    <div>
+      <h3>step 1 : Ask user consent to show notifications</h3>
+      <button disabled id="ask-user-permission-button">Ask user permission</button>
+    </div>
+    <div>
+      <h3>step 2 : Susbcribe to push notification</h3>
+      <p>this will create an endpoint that has to be sent to the push server</p><br>
+      <button disabled id="subscribe-to-push-notification-button">Subscibe to push notification</button>
+    </div>
+    <div>
+      <h3>step 3 : Send the notification to the push server</h3>
+      <button disabled id="send-subscription-button">Send subscription to push server</button>
+    </div>
+    <div>
+      <h3>step 4 : Ask the push server for a notification</h3>
+      <p>in production you don't ask for notifications, The push server decide itself when to send them</p><br>
+      <button disabled id="send-push-notification-button">Send a push notification</button>
+    </div>
+    <div>
+      <h3>User susbription:</h3>
+      <pre id="user-susbription"><code></code></pre>
+    </div>
+  </body>
+</html>
