@@ -1,11 +1,4 @@
-import { urlB64ToUint8Array } from "./utils/base64";
-
 const pushServerPublicKey = "BIN2Jc5Vmkmy-S3AUrcMlpKxJpLeVRAfu9WBqUbJ70SJOCWGCGXKY-Xzyh7HDr6KbRDGYHjqZ06OcS3BjD7uAm8";
-
-/**
- * the public key needs to be encoded in a Uint8Array
- */
-const convertedPushServerPublicKey = urlB64ToUint8Array(pushServerPublicKey);
 
 /**
  * checks if Push notification and service workers are supported by your browser
@@ -65,7 +58,7 @@ function createNotificationSubscription() {
     return serviceWorker.pushManager
     .subscribe({
       userVisibleOnly: true,
-      applicationServerKey: convertedPushServerPublicKey
+      applicationServerKey: pushServerPublicKey
     })
     .then(function(subscription) {
       console.log("User is subscribed.", subscription);

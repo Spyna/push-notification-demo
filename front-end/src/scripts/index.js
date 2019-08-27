@@ -74,8 +74,11 @@ let subscritionId;
 const pushNotificationSuported = isPushNotificationSupported();
 
 const pushNotificationConsentSpan = document.getElementById("push-notification-consent");
-const sendPushNotificationButton = document.getElementById("send-push-notification-button");
-sendPushNotificationButton.addEventListener("click", sendNotification);
+const pushNotificationSupportedSpan = document.getElementById("push-notification-supported");
+pushNotificationSupportedSpan.innerHTML = pushNotificationSuported;
+
+const askUserPemissionButton = document.getElementById("ask-user-permission-button");
+askUserPemissionButton.addEventListener("click", askUserPermission);
 
 const susbribeToPushNotificationButton = document.getElementById("create-notification-subscription-button");
 susbribeToPushNotificationButton.addEventListener("click", susbribeToPushNotification);
@@ -83,11 +86,8 @@ susbribeToPushNotificationButton.addEventListener("click", susbribeToPushNotific
 const sendSubscriptionButton = document.getElementById("send-subscription-button");
 sendSubscriptionButton.addEventListener("click", sendSubscriptionToPushServer);
 
-const askUserPemissionButton = document.getElementById("ask-user-permission-button");
-askUserPemissionButton.addEventListener("click", askUserPermission);
-
-const pushNotificationSupportedSpan = document.getElementById("push-notification-supported");
-pushNotificationSupportedSpan.innerHTML = pushNotificationSuported;
+const sendPushNotificationButton = document.getElementById("send-push-notification-button");
+sendPushNotificationButton.addEventListener("click", sendNotification);
 
 if (pushNotificationSuported) {
   updateUserConsent(Notification.permission);
