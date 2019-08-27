@@ -1,10 +1,4 @@
-<meta property="og:url" content="https://github.com/Spyna/push-notification-demo" />
-<meta property="og:type" content="website" />
-<meta property="og:title" content="Web push notification demo" />
-<meta property="og:description" content="How to implement Web Push Notification" />
-<meta property="og:image" content="https://github.com/Spyna/push-notification-demo/raw/master/push-notification.jpg" />
-<meta property="og:image:width" content="466" />
-<meta property="og:image:height" content="643" />
+> How to implement Web Push Notifications with live demo and instructions: https://push-notifications-demo.netlify.com/
 
 ![A push notificatin][pushNotificaiton]
 
@@ -12,6 +6,35 @@
 
 # push-notification-demo
 
-## Front end 
+This mono-repo project is a demo for this article https://itnext.io/an-introduction-to-web-push-notifications-in-javascript-a701783917ce
 
-## Back end 
+The project is composed by two parts: 
+
+* a front end written is HTML + JavaScript 
+
+* a back end written in JavaScript + NodeJS
+
+## Run locally
+
+### font-end
+
+```
+cd front-end 
+npm install 
+npm start
+```
+Next, open http://localhost:9000. 
+
+### back-end
+
+```
+cd back-end
+npm install
+export CORS_ORIGIN=http://localhost:9000 && node src/server.js
+```
+
+`export CORS_ORIGIN=http://localhost:9000` means: accept Cross Origin call from this host. 
+
+## deploying to your server
+
+If you want to deploy the front-end to your server remember to modify the back-end host in the webpack config file: `webpack.config.prod.js`: `'process.env.PUSH_SERVER_URL': JSON.stringify('https://push-notification-demo-server.herokuapp.com'),` 
