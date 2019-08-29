@@ -20,6 +20,7 @@ export default function usePushNotifications() {
 
   useEffect(() => {
     setLoading(true);
+    setError(false);
     const getExixtingSubscription = async () => {
       const existingSubscription = await getUserSubscription();
       setUserSubscription(existingSubscription);
@@ -31,6 +32,7 @@ export default function usePushNotifications() {
   useEffect(() => {
     if (pushNotificationSupported) {
       setLoading(true);
+      setError(false);
       registerServiceWorker().then(() => {
         setLoading(false);
       });
@@ -39,6 +41,7 @@ export default function usePushNotifications() {
 
   const onClickAskUserPermission = () => {
     setLoading(true);
+    setError(false);
     initializePushNotifications().then(consent => {
       setSuserConsent(consent);
       if (consent !== "granted") {
@@ -57,6 +60,7 @@ export default function usePushNotifications() {
    */
   const onClickSusbribeToPushNotification = () => {
     setLoading(true);
+    setError(false);
     createNotificationSubscription()
       .then(function(subscrition) {
         setUserSubscription(subscrition);
@@ -74,6 +78,7 @@ export default function usePushNotifications() {
    */
   const onClickSendSubscriptionToPushServer = () => {
     setLoading(true);
+    setError(false);
     http
       .post("/subscription", userSubscription)
       .then(function(response) {
@@ -91,6 +96,7 @@ export default function usePushNotifications() {
    */
   const onClickSendNotification = async () => {
     setLoading(true);
+    setError(false);
     await http.get(`/subscription/${pushServerSubscriptionId}`).catch(err => {
       setLoading(false);
       setError(err);
