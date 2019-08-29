@@ -1,0 +1,109 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Push server API",
+    "description": "Web push notification demo server",
+    "license": {
+      "name": "MIT",
+      "url": "https://opensource.org/licenses/MIT"
+    }
+  },
+  "host": "push-notification-demo-server.herokuapp.com/",
+  "basePath": "",
+  "tags": [
+    {
+      "name": "Web Push Subscription",
+      "description": "API for Web push subscription"
+    }
+  ],
+  "schemes": ["https"],
+  "consumes": ["application/json"],
+  "produces": ["application/json"],
+  "paths": {
+    "/subscription": {
+      "post": {
+        "tags": ["Web Push Subscription"],
+        "description": "Recevies a push subscription and save it in memory",
+        "parameters": [
+          {
+            "name": "pushSubscription",
+            "in": "body",
+            "description": "the subscription to be saved",
+            "schema": {
+              "$ref": "#/definitions/pushSubscription"
+            }
+          }
+        ],
+        "produces": ["application/json"],
+        "responses": {
+          "201": {
+            "description": "everything ok",
+            "schema": {
+              "$ref": "#/definitions/pushSubscriptionResponse"
+            }
+          }
+        }
+      }
+    },
+    "/subscription/{id}": {
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "description": "ID of the subscription that we want to find",
+          "type": "string"
+        }
+      ],
+      "get": {
+        "tags": ["Web Push Subscription"],
+        "summary": "Sends a push message to the existing push subscription",
+        "responses": {
+          "202": {
+            "description": "Message sent"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "pushSubscription": {
+      "required": ["endpoint"],
+      "properties": {
+        "endpoint": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "expirationTime": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "keys": {
+          "$ref": "#/definitions/Keys"
+        }
+      }
+    },
+    "Keys": {
+      "properties": {
+        "p256dh": {
+          "type": "string",
+          "uniqueItems": true
+        },
+        "auth": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    },
+    "pushSubscriptionResponse": {
+      "required": ["id"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "uniqueItems": true
+        }
+      }
+    }
+  }
+}

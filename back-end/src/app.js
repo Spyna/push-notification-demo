@@ -4,6 +4,9 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const subscriptionHandler = require('./subscriptionHandler')
 
+const swaggerUi = require('swagger-ui-express')
+const swaggerDocument = require('./swagger.json');
+
 const app = express();
 
 app.use(
@@ -15,7 +18,7 @@ app.use(
     credentials: true
   })
 );
-
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
