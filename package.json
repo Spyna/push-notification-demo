@@ -5,6 +5,7 @@
   "license": "MIT",
   "scripts": {
     "start": "cd ./back-end && npm install && node ./src/server",
-    "deploy:front-end": "cd front-end && npm install && npm run build"
+    "deploy:front-end": "cd front-end && npm install && npm run build",
+    "deploy:front-end-react": "cd front-end-react && npm install && npm run build"
   }
 }
