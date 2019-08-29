@@ -61,7 +61,7 @@ export default function PushNotificationDemo() {
       )}
 
       <section>
-        <h4>Your subscription details</h4>
+        <h4>Your notification subscription details</h4>
         <pre>
           <code>{JSON.stringify(userSubscription, null, " ")}</code>
         </pre>
