@@ -31,8 +31,6 @@ export default function PushNotificationDemo() {
     <main>
       <Loading loading={loading} />
 
-      <h1>React Web Push notification demo</h1>
-
       <p>Push notification are {!pushNotificationSupported && "NOT"} supported by your device.</p>
 
       <p>

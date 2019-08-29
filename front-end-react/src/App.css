@@ -6,6 +6,17 @@
   padding: 10px;
 }
 
+a,
+a:visited {
+  color: white;
+  line-height: 1.2rem;
+  font-size: 1.2rem;
+}
+
+a:hover {
+  border-bottom: 1px solid #ccc;
+}
+
 button {
   padding: 10px 20px;
   background-color: rgba(0, 0, 0, 0.4);
@@ -65,6 +76,6 @@ code {
   align-content: center;
   z-index: 10;
   background-color: #282c34;
-  opacity: .9;
+  opacity: 0.9;
   font-size: 3rem;
 }
