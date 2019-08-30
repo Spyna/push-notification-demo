@@ -10,11 +10,8 @@ function isPushNotificationSupported() {
 /**
  * asks user consent to receive push notifications and returns the response of the user, one of granted, default, denied
  */
-function initializePushNotifications() {
-  // request user grant to show notification
-  return Notification.requestPermission(function(result) {
-    return result;
-  });
+async function askUserPermission() {
+  return await Notification.requestPermission();
 }
 /**
  * shows a notification
@@ -38,30 +35,24 @@ function sendNotification() {
 }
 
 /**
- * 
+ *
  */
 function registerServiceWorker() {
   return navigator.serviceWorker.register("/sw.js");
 }
 
 /**
- * 
+ *
  * using the registered service worker creates a push notification subscription and returns it
- * 
+ *
  */
-function createNotificationSubscription() {
-  //wait for service worker installation to be ready, and then
-  return navigator.serviceWorker.ready.then(function(serviceWorker) {
-    // subscribe and return the subscription
-    return serviceWorker.pushManager
-    .subscribe({
-      userVisibleOnly: true,
-      applicationServerKey: pushServerPublicKey
-    })
-    .then(function(subscription) {
-      console.log("User is subscribed.", subscription);
-      return subscription;
-    });
+async function createNotificationSubscription() {
+  //wait for service worker installation to be ready
+  const serviceWorker = await navigator.serviceWorker.ready;
+  // subscribe and return the subscription
+  return await serviceWorker.pushManager.subscribe({
+    userVisibleOnly: true,
+    applicationServerKey: pushServerPublicKey
   });
 }
 
@@ -81,7 +72,7 @@ function getUserSubscription() {
 
 export {
   isPushNotificationSupported,
-  initializePushNotifications,
+  askUserPermission,
   registerServiceWorker,
   sendNotification,
   createNotificationSubscription,
