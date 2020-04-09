@@ -1,4 +1,4 @@
-> How to implement Web Push Notifications with live demo and instructions: https://push-notifications-demo.netlify.com/
+> How to implement Web Push Notifications with live demo and instructions: https://push-notifications-demo.netlify.app/
 
 ![A push notificatin][pushNotificaiton]
 
