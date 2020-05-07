@@ -9,15 +9,7 @@ const swaggerDocument = require('./swagger.json');
 
 const app = express();
 
-app.use(
-  cors({
-    origin(origin, cb) {
-      const whitelist = process.env.CORS_ORIGIN ? process.env.CORS_ORIGIN.split(",") : [];
-      cb(null, whitelist.includes(origin));
-    },
-    credentials: true
-  })
-);
+app.use(cors())
 app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 app.use(compression());
 app.use(bodyParser.urlencoded({ extended: true }));
